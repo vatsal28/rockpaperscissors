@@ -1,40 +1,63 @@
 <script>
-    function RockPaperScissors(playerSelection,computerSelection){
-        let userInput = prompt("Rock, paper or scissors?").toLowerCase();
-        let compInput = Math.floor(Math.random()*Math.floor(3));
+    function RockPaperScissors(playerSelection, computerSelection) {
         let result = 0;
         //0 - rock, 1 - paper, 2 - scissors
-        if(userInput=="rock" && compInput==0){
+        if (playerSelection == "rock" && computerSelection == 0) {
             result = "Draw!";
         }
-        else if(userInput=="rock" && compInput==1){
+        else if (playerSelection == "rock" && computerSelection == 1) {
             result = "You lose!";
         }
-        else if(userInput=="rock" && compInput==2){
+        else if (playerSelection == "rock" && computerSelection == 2) {
             result = "You win!";
         }
-        else if(userInput=="paper" && compInput==0){
+        else if (playerSelection == "paper" && computerSelection == 0) {
             result = "You win!";
         }
-        else if(userInput=="paper" && compInput==1){
+        else if (playerSelection == "paper" && computerSelection == 1) {
             result = "Draw!";
         }
-        else if(userInput=="paper" && compInput==2){
+        else if (playerSelection == "paper" && computerSelection == 2) {
             result = "You lose!";
         }
-        else if(userInput=="scissors" && compInput==0){
+        else if (playerSelection == "scissors" && computerSelection == 0) {
             result = "You lose!";
         }
-        else if(userInput=="scissors" && compInput==1){
+        else if (playerSelection == "scissors" && computerSelection == 1) {
             result = "You win!";
         }
-        else if(userInput=="scissors" && compInput==2){
+        else if (playerSelection == "scissors" && computerSelection == 2) {
             result = "Draw!";
         }
-        else{
+        else {
             result = "WTF";
         }
         return result;
     }
+
+    function game() {
+        let compwins = 0;
+        let userwins = 0;
+        for (let i = 0; i < 5; i++) {
+            let userInput = prompt("Rock, paper or scissors?").toLowerCase();
+            let compInput = Math.floor(Math.random() * Math.floor(3));
+            let x = RockPaperScissors(userInput, compInput)
+            console.log(x)
+            if(x=="You win!"){
+                userwins=userwins+1;
+            }else if(x=="You lose!"){
+                compwins=compwins+1;
+            }
+        }
+        console.log(compwins,userwins);
+
+        if(compwins>userwins){
+            alert("You lost!");
+        }else if(userwins>compwins){
+            alert("You won!");
+        }
+
+    }
+
 
 </script>
